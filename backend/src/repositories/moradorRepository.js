@@ -38,7 +38,8 @@ module.exports = {
             nome,
             telefone,
             email,
-            apartamento
+            apartamento,
+            observacao
         } = data;
 
         await db('moradores')
@@ -47,7 +48,8 @@ module.exports = {
                 nome,
                 telefone,
                 email,
-                apartamento
+                apartamento,
+                observacao
             });
 
         return true;

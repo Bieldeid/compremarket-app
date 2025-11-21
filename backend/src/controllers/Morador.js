@@ -19,5 +19,28 @@ module.exports = {
             console.error('Erro ao criar morador: ', err)
             res.status(400).json({error: err.message})
         }
+    },
+
+    async editMorador(req, res){
+        const {id} = req.params
+        const data = req.body
+        try {
+            const result = await moradorService.updateMorador(id, data);
+            res.status(201).json({message: 'morador editado',data:result})
+        } catch (err){
+            console.error('erro ao editar morador: ', err)
+            res.status(400).json({error: err.message})
+        }
+    },
+
+    async removeMorador(req,res){
+        const {id} = req.params
+        try{
+            const result = await moradorService.deleteMorador(id);
+            res.status(201).json({message: 'morador removido ', data:result})
+        } catch (err){
+            console.error('erro ao remover morador: ', err)
+            res.status(400).json({error: err.message})
+        }
     }
 };
