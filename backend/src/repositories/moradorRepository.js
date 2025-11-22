@@ -16,7 +16,8 @@ module.exports = {
             telefone,
             email,
             apartamento,
-            observacao
+            observacao,
+            mercado_id
         } = data;
 
         const date = new Date();
@@ -27,6 +28,7 @@ module.exports = {
             email,
             apartamento,
             observacao,
+            mercado_id,
             dataEntrada: date
         });
 
