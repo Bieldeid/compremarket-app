@@ -7,7 +7,13 @@ const historicoController = require('./controllers/Historico');
 
 //Rotas do controller Morador
 router.get('/visualizarMoradores', moradorController.getAllMorador)
-router.post('/criarMorador', moradorController.createMorador)
+router.post('/criarMorador', 
+    upload.fields([
+        {name: "foto_normal", maxCount:1},
+        {name: "foto_neutra", maxCount:1}
+    ]),
+    moradorController.createMorador
+)
 router.put('/editarMorador/:id', moradorController.editMorador)
 router.delete('/removerMorador/:id', moradorController.removeMorador)
 

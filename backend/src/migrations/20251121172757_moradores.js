@@ -7,6 +7,8 @@ exports.up = function(knex) {
         table.string('telefone').notNullable();
         table.string('apartamento').notNullable();
         table.string('observacao').notNullable;
+        table.string('foto_normal');
+        table.string('foto_neutra');
         table.date('dataEntrada').defaultTo(knex.fn.now());
 
     })

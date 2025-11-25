@@ -1,5 +1,6 @@
 const db = require('../database/db');
 
+
 module.exports = {
 
     async getAllMoradores() {
@@ -17,7 +18,9 @@ module.exports = {
             email,
             apartamento,
             observacao,
-            mercado_id
+            mercado_id,
+            foto_normal,
+            foto_neutra
         } = data;
 
         const date = new Date();
@@ -29,6 +32,8 @@ module.exports = {
             apartamento,
             observacao,
             mercado_id,
+            foto_normal,
+            foto_neutra,
             dataEntrada: date
         });
 

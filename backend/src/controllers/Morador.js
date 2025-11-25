@@ -11,13 +11,23 @@ module.exports = {
         }
     },
 
-    async createMorador(req, res){
+    async createMorador(req, res) {
         try {
-            const result = await moradorService.createMorador(req.body);
-            res.status(201).json({message: 'morador criado ', data: result})
-        } catch (err){
-            console.error('Erro ao criar morador: ', err)
-            res.status(400).json({error: err.message})
+            const data = req.body;
+
+            data.foto_normal = req.files?.foto_normal?.[0]?.filename || null;
+            data.foto_neutra = req.files?.foto_neutra?.[0]?.filename || null;
+
+            const result = await moradorService.createMorador(data);
+
+            res.status(201).json({
+                message: "Morador criado com sucesso",
+                data: result
+            });
+
+        } catch (err) {
+            console.error("Erro ao criar morador: ", err);
+            res.status(400).json({ error: err.message });
         }
     },
 
